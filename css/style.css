@@ -18,6 +18,18 @@ body {
     font-size: 64px;
     text-align: center;
 }
+#reset {
+    border-radius: 10px;
+    width: 100px;
+    box-shadow: 2px 2px black;
+    margin: 20px;
+    cursor: pointer;
+    position: absolute;
+    left: 135px;
+}
+#reset:hover {
+    transform: scale(1.05);
+}
 
 
 

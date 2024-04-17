@@ -37,6 +37,7 @@ let tie;
 const squareEls = document.querySelectorAll(".sqr");
 const messageEl = document.querySelector("#message");
 const boardElement = document.querySelector(".board");
+const resetBtnEl = document.querySelector("#reset");
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -168,7 +169,7 @@ function handleClick(event){
 function checkForWinner(){
     if(board[0] !== "" && board[0] === board[1] && board[0] === board[2]){
         winner = true;
-       
+        
     }else if(board[3] !== "" && board[3] === board[4] && board[3] === board[5]){
         winner = true;
         
@@ -217,7 +218,8 @@ function switchPlayerTurn(){
 
 
 /*----------------------------- Event Listeners -----------------------------*/
-boardElement.addEventListener("click", handleClick)
+boardElement.addEventListener("click", handleClick);
+resetBtnEl.addEventListener("click", init);
 
 
 
