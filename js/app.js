@@ -196,15 +196,22 @@ function checkForWinner(){
 function checkForTie(){
     if(winner === true){
         return;
-    }
-    board.find((square)=>{
-        if(square === ""){
-            tie = false;
-        }else{
-            tie = true;
+    }else{
+        for(let element of board){
+            if(element === ""){
+                tie = false;
+            }else if(element !== ""){
+                tie = true;
+            }
         }
-    })
-    console.log(tie)
+    }
+    // for(let element of board){
+    //     if(element === ""){
+    //         tie = false;
+    //     }else if(element !== ""){
+    //         tie = true;
+    //     }
+    // }
 }
 
 function switchPlayerTurn(){
