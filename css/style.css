@@ -1,34 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
 body {
-    background-color: lightblue;
+    background-image: url("https://i.imgur.com/NbLcPjq.jpeg");
+    background-size: cover;
     /* Use a system font, if none are available use an available sans-sarif */
-    font-family: system-ui, sans-serif;
-    margin: 0 0 0 50px;
+    /* font-family: system-ui, sans-serif; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Color Waves Background Animation Feature
+@keyframes background {
+    0% {}
+    25% {}
+    50% {}
+    75% {}
+    100% {}
+} */
+
+.container {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-areas:
+    "one"
+    "two"
+    "three"
+    "four";
 }
 
 .board {
     display: flex;
     flex-wrap: wrap;
     width: 325px;
+    grid-area: three;
+    cursor: crosshair;
 }
 
 .sqr {
     width: 30%;
     aspect-ratio: 1/1;
     border: 3px solid black;
+    border-radius: 10px;
     font-size: 64px;
     text-align: center;
+    background-color: hsla(105, 89%, 50%, .5);
+    color: white;
 }
+
+.sqr:hover {
+    background-color: hsla(105, 89%, 50%, .10);
+}
+
+h1 {
+    grid-area: one;
+    font-family: "Jersey 10", sans-serif;
+    font-size: 3rem;
+    color: white;
+}
+
+h2 {
+    grid-area: two;
+    font-family: "Jersey 10", sans-serif;
+    font-size: 2rem;
+    color: white;
+}
+
 #reset {
-    border-radius: 10px;
+    font-family: "Jersey 10", sans-serif;
+    border-radius: 15px;
     width: 100px;
     box-shadow: 2px 2px black;
+    font-size: 1.5rem;
     margin: 20px;
     cursor: pointer;
-    position: absolute;
-    left: 135px;
+    grid-area: four;
+
 }
+
 #reset:hover {
     transform: scale(1.05);
+}
+
+@media (max-width: 1210px) {
+    body {
+        background-size: cover;
+        height: 100vh;
+    }  
 }
 
 

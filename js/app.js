@@ -39,6 +39,7 @@ const messageEl = document.querySelector("#message");
 const boardElement = document.querySelector(".board");
 const resetBtnEl = document.querySelector("#reset");
 
+
 /*-------------------------------- Functions --------------------------------*/
 
 //Dispplay state of game to the user
@@ -67,11 +68,11 @@ function updateBoard(){
 
 function updatedMessage(){
     if(winner === false && tie === false){
-        messageEl.textContent = `It's your turn Player ${turn}`;
+        messageEl.textContent = `It's Your Turn Player ${turn}`;
     }else if(winner === false && tie === true){
-        messageEl.textContent = "It's a tie";
+        messageEl.textContent = "It's a Tie";
     }else{
-        messageEl.textContent = `Congratulations Player ${turn}, you won!`;
+        messageEl.textContent = `Congratulations Player ${turn}, You Won!`;
     }
 }
 
