@@ -61,7 +61,7 @@ init();
 
 function updateBoard(){
     squareEls.forEach((squareEl, index)=>{
-        squareEl.textContent = board[index]
+        squareEl.textContent = board[index] //Assigns the square dom element to the index value in the board array
     })
 }
 
@@ -76,7 +76,7 @@ function updatedMessage(){
 }
 
 function placePiece(index){
-    board[index] = turn;
+    board[index] = turn; //places the turn value ("X" or "O") into the board array
     console.log(board);
 }
 
@@ -86,14 +86,17 @@ function handleClick(event){
     const squareIndex = event.target.id;
     if(board[squareIndex] === ""){
         event.target.textContent = turn;
+    }else if(board[squareIndex] === "X" || board[squareIndex] === "O"){ //Ensure that if square is already taken, user CANNOT place a piece there
+       messageEl.textContent = "Square taken, please select empty square";
+        return;
     }
-    placePiece(squareIndex);
+    placePiece(squareIndex); //assigns the squareIndex (id of the square element on HTML)
     checkForWinner();
     checkForTie();
     switchPlayerTurn();
     render();   
 }
-
+//Checks for winning condition (reference to the winning combinations array)
 function checkForWinner(){
     if(board[0] !== "" && board[0] === board[1] && board[0] === board[2]){
         winner = true;
@@ -125,8 +128,8 @@ function checkForWinner(){
 function checkForTie(){
     if(winner === true){
         return;
-    }else{
-        tie = board.every((square)=>{
+    }else{ 
+        tie = board.every((square)=>{ //Using the every() method to ensure that ALL elements in the array MUST be Empty with winner also being false: MUST set it to a variable and will return boolean value (boolean value we return will be assigned to tie variable) - Initially I tried find(), but it did not work and it makes sense to use every() because our game logic dictates that ALL elements in the board array MUST NOT be empty while winner is also false
             return square !== ""
         })
     }
@@ -134,7 +137,7 @@ function checkForTie(){
 
 function switchPlayerTurn(){
     if(winner){
-        return;
+        return; //Learned to just code "return" if we want to come out of the function 
     }else if(!winner){
         if(turn === "X"){
             turn = "O";
@@ -147,7 +150,8 @@ function switchPlayerTurn(){
 
 /*----------------------------- Event Listeners -----------------------------*/
 boardElement.addEventListener("click", handleClick);
-resetBtnEl.addEventListener("click", init);
+resetBtnEl.addEventListener("click", init); //Game reset feature using the init() handler to re-initialize the game with those values defined and assigned in the init() function
+
 
 
 
