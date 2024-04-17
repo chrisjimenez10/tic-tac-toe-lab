@@ -54,43 +54,14 @@ function init(){
     turn = "X";
     winner = false;
     tie = false;
+    updateBoard();
     render();
 }
 init();
 
 function updateBoard(){
-    board.forEach((sqr)=>{
-        switch(sqr){
-            case board[0]:
-                squareEls[0].textContent = sqr;
-                break;
-            case board[1]:
-                squareEls[1].textContent = sqr;
-                break;
-            case board[2]:
-                squareEls[2].textContent = sqr;
-                break;
-            case board[3]:
-                squareEls[3].textContent = sqr;
-                break;
-            case board[4]:
-                squareEls[4].textContent = sqr;
-                break;
-            case board[5]:
-                squareEls[5].textContent = sqr;
-                break;
-            case board[6]:
-                squareEls[6].textContent = sqr;
-                break;
-            case board[7]:
-                squareEls[7].textContent = sqr;
-                break;
-            case board[8]:
-                squareEls[8].textContent = sqr;
-                break;
-            default:
-                return;
-        }
+    squareEls.forEach((squareEl, index)=>{
+        squareEl.textContent = board[index]
     })
 }
 
@@ -109,57 +80,14 @@ function placePiece(index){
     console.log(board);
 }
 
+
+
 function handleClick(event){
-    switch(event.target.id){
-        case "0":
-            squareIndex = event.target.id;
-            event.target.textContent = turn;
-            placePiece(squareIndex);
-            break;
-        case "1":
-            squareIndex = event.target.id;
-            event.target.textContent = turn;
-            placePiece(squareIndex);;
-            break;
-        case "2":
-            squareIndex = event.target.id;
-            event.target.textContent = turn;
-            placePiece(squareIndex);
-            break;
-        case "3":
-            squareIndex = event.target.id;
-            event.target.textContent = turn;
-            placePiece(squareIndex);
-            break;
-        case "4":
-            squareIndex = event.target.id;
-            event.target.textContent = turn;
-            placePiece(squareIndex);
-            break;
-        case "5":
-            squareIndex = event.target.id;
-            event.target.textContent = turn;
-            placePiece(squareIndex);
-            break;
-        case "6":
-            squareIndex = event.target.id;
-            event.target.textContent = turn;
-            placePiece(squareIndex);
-            break;
-        case "7":
-            squareIndex = event.target.id;
-            event.target.textContent = turn;
-            placePiece(squareIndex);
-            break;
-        case "8":
-            squareIndex = event.target.id;
-            event.target.textContent = turn;
-            placePiece(squareIndex);
-            break;
-        default:
-            console.log("Error: click on a square")
-            return;
+    const squareIndex = event.target.id;
+    if(board[squareIndex] === ""){
+        event.target.textContent = turn;
     }
+    placePiece(squareIndex);
     checkForWinner();
     checkForTie();
     switchPlayerTurn();
