@@ -158,13 +158,63 @@ function handleClick(event){
         default:
             console.log("Error - Please Select a Square");
     }
-    checkForWinner();   
+    checkForWinner();
+    checkForTie();
+    switchPlayerTurn();
+    render();   
 }
 
 function checkForWinner(){
     if(board[0] !== "" && board[0] === board[1] && board[0] === board[2]){
         winner = true;
-        console.log(winner)
+       
+    }else if(board[3] !== "" && board[3] === board[4] && board[3] === board[5]){
+        winner = true;
+        
+    }else if(board[6] !== "" && board[6] === board[7] && board[6] === board[8]){
+        winner = true;
+        
+    }else if(board[0] !== "" && board[0] === board[3] && board[0] === board[6]){
+        winner = true;
+        
+    }else if(board[1] !== "" && board[1] === board[4] && board[1] === board[7]){
+        winner = true;
+        
+    }else if(board[2] !== "" && board[2] === board[5] && board[2] === board[8]){
+        winner = true;
+        
+    }else if(board[0] !== "" && board[0] === board[4] && board[0] === board[8]){
+        winner = true;
+        
+    }else if(board[2] !== "" && board[2] === board[4] && board[2] === board[6]){
+        winner = true;
+        
+    }
+}
+
+function checkForTie(){
+    if(winner){
+        return;
+    }
+    board.find((square)=>{
+        if(square === ""){
+            tie = false;
+        }else if(square !== ""){
+            tie = true;
+        }
+    })
+    console.log(tie)
+}
+
+function switchPlayerTurn(){
+    if(winner){
+        return;
+    }else if(!winner){
+        if(turn === "X"){
+            turn = "O";
+        }else if(turn === "O"){
+            turn = "X";
+        }
     }
 }
 
