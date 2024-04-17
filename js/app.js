@@ -197,21 +197,10 @@ function checkForTie(){
     if(winner === true){
         return;
     }else{
-        for(let element of board){
-            if(element === ""){
-                tie = false;
-            }else if(element !== ""){
-                tie = true;
-            }
-        }
+        tie = board.every((square)=>{
+            return square !== ""
+        })
     }
-    // for(let element of board){
-    //     if(element === ""){
-    //         tie = false;
-    //     }else if(element !== ""){
-    //         tie = true;
-    //     }
-    // }
 }
 
 function switchPlayerTurn(){
