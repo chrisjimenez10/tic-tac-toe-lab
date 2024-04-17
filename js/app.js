@@ -88,7 +88,7 @@ function updateBoard(){
                 squareEls[8].textContent = sqr;
                 break;
             default:
-                console.log(`Error`);
+                return;
         }
     })
 }
@@ -156,7 +156,8 @@ function handleClick(event){
             placePiece(squareIndex);
             break;
         default:
-            console.log("Error - Please Select a Square");
+            console.log("Error: click on a square")
+            return;
     }
     checkForWinner();
     checkForTie();
@@ -193,13 +194,13 @@ function checkForWinner(){
 }
 
 function checkForTie(){
-    if(winner){
+    if(winner === true){
         return;
     }
     board.find((square)=>{
         if(square === ""){
             tie = false;
-        }else if(square !== ""){
+        }else{
             tie = true;
         }
     })
