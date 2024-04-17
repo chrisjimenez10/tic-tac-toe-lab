@@ -58,17 +58,25 @@ h1 {
     font-family: "Jersey 10", sans-serif;
     font-size: 3rem;
     color: white;
+    text-shadow: 6px 3px 2px black;
+    background-color: hsla(105, 89%, 50%, .5);
+    border-radius: 10px;
+    padding: 15px;
 }
 
 h2 {
     grid-area: two;
     font-family: "Jersey 10", sans-serif;
     font-size: 2rem;
-    color: white;
+    color: whitesmoke;
+    background-color: hsla(105, 89%, 50%, .5);
+    padding: 15px;
+    border-radius: 10px;
 }
 
 #reset {
     font-family: "Jersey 10", sans-serif;
+    border: 2px solid black;
     border-radius: 15px;
     width: 100px;
     box-shadow: 2px 2px black;
@@ -76,11 +84,14 @@ h2 {
     margin: 20px;
     cursor: pointer;
     grid-area: four;
+    background-color: white;
 
 }
 
 #reset:hover {
     transform: scale(1.05);
+    background-color: hsla(105, 89%, 50%, .5);
+    color: white;
 }
 
 @media (max-width: 1210px) {
